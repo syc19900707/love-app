@@ -3,31 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>❤️ 婷婷 & 研成 的恋爱小窝</title>
+<title>💕 专属我们的恋爱小窝</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-    font-family:'Microsoft YaHei','PingFang SC',sans-serif;
-    background: url('bg.jpg') center/cover no-repeat fixed;
-    min-height:100vh; color:#5a3e3e;
-}
+body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:url('bg.jpg') center/cover no-repeat fixed;min-height:100vh;color:#5a3e3e;}
 body::before{content:'';position:fixed;inset:0;background:rgba(255,245,247,0.55);z-index:-1;}
-
 .page{display:none;min-height:100vh;position:relative;z-index:1;}
 .page.active{display:block;}
-
-/* 登录页 */
-#login-page{
-    display:flex;align-items:center;justify-content:center;
-    min-height:100vh;
-}
-.login-box{
-    text-align:center;padding:50px 40px;
-    background:rgba(255,255,255,0.92);border-radius:30px;
-    box-shadow:0 8px 32px rgba(255,105,150,0.25);
-    max-width:400px;width:92%;border:2px solid rgba(255,150,180,0.3);
-    backdrop-filter:blur(6px);
-}
+#login-page{display:flex;align-items:center;justify-content:center;min-height:100vh;}
+.login-box{text-align:center;padding:50px 40px;background:rgba(255,255,255,0.92);border-radius:30px;box-shadow:0 8px 32px rgba(255,105,150,0.25);max-width:400px;width:92%;border:2px solid rgba(255,150,180,0.3);backdrop-filter:blur(6px);}
 .login-avatars{display:flex;justify-content:center;gap:30px;margin:25px 0;}
 .login-avatar-item{text-align:center;cursor:pointer;transition:.3s;}
 .login-avatar-item:hover img{transform:scale(1.1) rotate(-5deg);border-color:#ff6b9d;}
@@ -35,40 +19,19 @@ body::before{content:'';position:fixed;inset:0;background:rgba(255,245,247,0.55)
 .login-avatar-item .la-name{font-size:13px;margin-top:8px;color:#888;font-weight:bold;}
 .login-box h1{font-size:24px;margin-bottom:6px;background:linear-gradient(135deg,#ff6b9d,#ff8a80);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .login-subtitle{font-size:13px;color:#999;margin-bottom:24px;}
-.login-input{
-    width:100%;padding:14px 20px;border:2px solid #ffcdd2;border-radius:16px;
-    font-size:16px;text-align:center;outline:none;transition:.3s;
-    background:rgba(255,249,250,0.8);margin-bottom:18px;
-}
+.login-input{width:100%;padding:14px 20px;border:2px solid #ffcdd2;border-radius:16px;font-size:16px;text-align:center;outline:none;transition:.3s;background:rgba(255,249,250,0.8);margin-bottom:18px;}
 .login-input:focus{border-color:#ff6b9d;box-shadow:0 0 12px rgba(255,107,157,.2);}
-.login-btn{
-    width:100%;padding:14px;border:none;border-radius:16px;
-    font-size:17px;font-weight:bold;cursor:pointer;letter-spacing:4px;
-    background:linear-gradient(135deg,#ff6b9d,#ff8a65);color:white;transition:.3s;
-}
+.login-btn{width:100%;padding:14px;border:none;border-radius:16px;font-size:17px;font-weight:bold;cursor:pointer;letter-spacing:4px;background:linear-gradient(135deg,#ff6b9d,#ff8a65);color:white;transition:.3s;}
 .login-btn:hover{transform:scale(1.03);}
 .login-error{color:#e53935;font-size:13px;margin-top:10px;display:none;}
-
-/* 主页面 */
+.sync-status{font-size:11px;margin-top:8px;}
 #main-page{padding-bottom:80px;}
-.top-bar{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:10px 18px;background:rgba(255,250,252,0.95);
-    backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,180,200,0.3);
-}
+.top-bar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:10px 18px;background:rgba(255,250,252,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,180,200,0.3);}
 .user-info{display:flex;align-items:center;gap:10px;}
 .user-avatar-sm{width:36px;height:36px;border-radius:50%;border:2px solid #ffb6c1;object-fit:cover;}
 .user-name-sm{font-size:15px;font-weight:bold;color:#e85a71;}
 .logout-btn{padding:6px 14px;border-radius:12px;border:1px solid #ffcdd2;background:#fff;color:#999;font-size:12px;cursor:pointer;}
-
-/* 底部导航 */
-.tab-nav{
-    position:fixed;bottom:0;left:0;right:0;z-index:100;
-    display:flex;background:rgba(255,250,252,0.95);
-    backdrop-filter:blur(10px);border-top:1px solid rgba(255,180,200,0.3);
-    padding:8px 0;padding-bottom:max(8px, env(safe-area-inset-bottom));
-}
+.tab-nav{position:fixed;bottom:0;left:0;right:0;z-index:100;display:flex;background:rgba(255,250,252,0.95);backdrop-filter:blur(10px);border-top:1px solid rgba(255,180,200,0.3);padding:8px 0;padding-bottom:max(8px, env(safe-area-inset-bottom));}
 .tab-item{flex:1;text-align:center;padding:6px 4px;cursor:pointer;transition:.3s;border-radius:12px;margin:0 4px;}
 .tab-item.active{background:rgba(255,107,157,.12);}
 .tab-icon{font-size:22px;}
@@ -77,13 +40,7 @@ body::before{content:'';position:fixed;inset:0;background:rgba(255,245,247,0.55)
 .content-area{padding:60px 16px 20px;max-width:520px;margin:0 auto;}
 .section{display:none;}
 .section.active{display:block;}
-
-/* 首页 */
-.welcome-card{
-    text-align:center;padding:35px 24px;margin-bottom:20px;
-    background:rgba(255,255,255,0.9);border-radius:24px;
-    box-shadow:0 4px 20px rgba(255,107,157,0.12);border:2px solid rgba(255,200,215,0.4);
-}
+.welcome-card{text-align:center;padding:35px 24px;margin-bottom:20px;background:rgba(255,255,255,0.9);border-radius:24px;box-shadow:0 4px 20px rgba(255,107,157,0.12);border:2px solid rgba(255,200,215,0.4);}
 .wc-hearts{font-size:36px;margin-bottom:12px;animation:pulse 1.5s ease infinite alternate;}
 @keyframes pulse{from{transform:scale(1);}to{transform:scale(1.15);}}
 .wc-title{font-size:26px;font-weight:bold;margin-bottom:6px;background:linear-gradient(135deg,#e85a71,#f06292);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
@@ -92,47 +49,34 @@ body::before{content:'';position:fixed;inset:0;background:rgba(255,245,247,0.55)
 .wc-avatar{width:75px;height:75px;border-radius:50%;border:3px solid #ffb6c1;object-fit:cover;}
 .wc-heart{font-size:30px;animation:pulse 1.2s ease infinite alternate;}
 .wc-names{font-size:15px;margin-top:8px;color:#888;}
-.wc-counter{
-    display:inline-block;margin-top:16px;padding:10px 22px;
-    background:linear-gradient(135deg,#fce4ec,#fff0f3);border-radius:20px;
-    font-size:14px;color:#c94b68;font-weight:bold;
-}
-
-/* 留言板 */
+.wc-counter{display:inline-block;margin-top:16px;padding:10px 22px;background:linear-gradient(135deg,#fce4ec,#fff0f3);border-radius:20px;font-size:14px;color:#c94b68;font-weight:bold;}
 .msg-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
 .msg-title{font-size:19px;font-weight:bold;color:#e85a71;}
 .msg-form{background:rgba(255,255,255,0.92);padding:16px;border-radius:18px;margin-bottom:16px;border:2px dashed #ffcdd2;}
-.msg-textarea{width:100%;height:70px;border:2px solid #ffebee;border-radius:12px;padding:12px;font-size:14px;resize:none;outline:none;font-family:inherit;transition:.3s;background:rgba(255,250,249,0.8);}
+.msg-textarea{width:100%;height:70px;border:2px solid #ffebec;border-radius:12px;padding:12px;font-size:14px;resize:none;outline:none;font-family:inherit;transition:.3s;background:rgba(255,250,249,0.8);}
 .msg-textarea:focus{border-color:#ff6b9d;}
 .msg-send-btn{width:100%;margin-top:10px;padding:11px;border:none;border-radius:12px;background:linear-gradient(135deg,#ff6b9d,#ff8a65);color:#fff;font-size:15px;font-weight:bold;cursor:pointer;transition:.3s;}
+.msg-send-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .msg-list{display:flex;flex-direction:column;gap:12px;}
 .msg-card{padding:16px;border-radius:16px;position:relative;max-width:100%;word-break:break-all;box-shadow:0 3px 12px rgba(0,0,0,.06);}
 .msg-card.tingting{background:linear-gradient(145deg,#fff0f5,#ffd6e7);border-left:4px solid #ff6b9d;margin-right:8%;}
-.msg-card.yancheng{background:linear-gradient(145deg,#e3f2fd,#bbdefb);border-left:4px solid #42a5f5;margin-left:8%;}
+.msg-card.yancheng{background:linear-gradient(145deg,#e3f2fd,#bddfbf);border-left:4px solid #42a5f5;margin-left:8%;}
 .msg-card-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
 .msg-card-avatar{width:28px;height:28px;border-radius:50%;object-fit:cover;border:2px solid #fff;}
 .msg-card-name{font-size:13px;font-weight:bold;}
 .msg-card-date{font-size:11px;color:#aaa;margin-left:auto;}
 .msg-card-body{font-size:14px;line-height:1.6;color:#555;}
 .msg-empty{text-align:center;padding:40px;color:#bbb;font-size:14px;}
-
-/* 时间轴 */
 .timeline-container{position:relative;padding:20px 0;}
 .timeline-line{position:absolute;left:28px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,#ff6b9d,#ffab91,#ce93d8);border-radius:2px;}
 .timeline-item{position:relative;padding-left:60px;margin-bottom:26px;}
 .timeline-dot{position:absolute;left:20px;top:6px;width:18px;height:18px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px #ff6b9d;background:#fff;}
 .timeline-dot.past{background:#ff6b9d;}
 .timeline-dot.future{background:#ce93d8;}
-.timeline-dot.editable{background:#81c784;box-shadow:0 0 0 2px #66bb6a;cursor:pointer;}
-.timeline-card{background:rgba(255,255,255,0.92);padding:14px 18px;border-radius:16px;box-shadow:0 3px 12px rgba(0,0,0,.07);}
+.timeline-cards{background:rgba(255,255,255,0.92);padding:14px 18px;border-radius:16px;box-shadow:0 3px 12px rgba(0,0,0,.07);}
 .timeline-date{font-size:12px;font-weight:bold;color:#e85a71;display:inline-block;padding:2px 10px;border-radius:10px;background:#fce4ec;margin-bottom:6px;}
 .timeline-event{font-size:15px;color:#5a3e3e;font-weight:bold;}
 .timeline-desc{font-size:13px;color:#888;margin-top:4px;}
-.edit-form{display:none;margin-top:10px;}
-.edit-input{width:100%;padding:8px 12px;border:2px solid #c8e6c9;border-radius:10px;font-size:14px;outline:none;margin-bottom:8px;}
-.edit-save-btn{padding:6px 16px;border:none;border-radius:8px;background:#66bb6a;color:#fff;cursor:pointer;font-size:13px;}
-
-/* 纪念日 */
 .anniversary-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .anniv-card{background:rgba(255,255,255,0.92);padding:14px;border-radius:18px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.07);transition:.3s;border:2px solid rgba(255,190,210,0.3);}
 .anniv-card:hover{transform:translateY(-3px);}
@@ -142,14 +86,15 @@ body::before{content:'';position:fixed;inset:0;background:rgba(255,245,247,0.55)
 .anniv-countdown{font-size:13px;color:#c94b68;font-weight:bold;}
 .anniv-countdown.soon{color:#e53935;}
 .anniv-countdown.today{color:#43a047;font-size:15px;}
-.love-days-banner{
-    text-align:center;padding:20px;margin-bottom:16px;
-    background:linear-gradient(135deg,#fce4ec,#f3e5f5,#e8eaf6);
-    border-radius:20px;border:2px solid rgba(255,180,210,0.4);
-}
+.love-days-banner{text-align:center;padding:20px;margin-bottom:16px;background:linear-gradient(135deg,#fce4ec,#f3e5f5,#e8eaf6);border-radius:20px;border:2px solid rgba(255,180,210,0.4);}
 .love-days-num{font-size:42px;font-weight:bold;background:linear-gradient(135deg,#e85a71,#f06292,#ba68c8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .love-days-label{font-size:15px;color:#888;}
-
+.settings-box{background:rgba(255,255,255,0.95);padding:20px;border-radius:18px;margin-bottom:16px;}
+.settings-label{font-size:14px;color:#888;margin-bottom:8px;display:block;}
+.settings-input{width:100%;padding:10px 14px;border:2px solid #ffcdd2;border-radius:12px;font-size:14px;outline:none;margin-bottom:12px;}
+.settings-input:focus{border-color:#ff6b9d;}
+.settings-btn{padding:10px 20px;border:none;border-radius:12px;background:linear-gradient(135deg,#ff6b9d,#ff8a65);color:#fff;font-size:14px;font-weight:bold;cursor:pointer;}
+.settings-status{font-size:12px;margin-top:8px;}
 .fade-in{animation:fadeIn .4s ease forwards;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 @media(max-width:400px){.wc-avatars-row{gap:10px;}.wc-avatar{width:60px;height:60px;}}
@@ -157,28 +102,26 @@ body::before{content:'';position:fixed;inset:0;background:rgba(255,245,247,0.55)
 </head>
 <body>
 
-<!-- 登录页 -->
 <div id="login-page" class="page active">
 <div class="login-box">
   <div class="login-avatars">
-    <div class="login-avatar-item" onclick="fillName('何婷婷')">
-      <img src="hetingting.jpg" alt="何婷婷">
-      <div class="la-name">何婷婷</div>
+    <div class="login-avatar-item" onclick="fillName('婷婷宝贝')">
+      <img src="hetingting.jpg" alt="婷婷宝贝">
+      <div class="la-name">婷婷宝贝</div>
     </div>
-    <div class="login-avatar-item" onclick="fillName('孙研成')">
-      <img src="sunyancheng.jpg" alt="孙研成">
-      <div class="la-name">孙研成</div>
+    <div class="login-avatar-item" onclick="fillName('孙妍成')">
+      <img src="sunyancheng.jpg" alt="孙妍成">
+      <div class="la-name">孙妍成</div>
     </div>
   </div>
-  <h1>💕 我们的恋爱小窝</h1>
-  <p class="login-subtitle">输入名字，开启甜蜜之旅</p>
+  <h1>💕 专属我们的恋爱小窝 💕</h1>
+  <p class="login-subtitle">输入你的名字，开启专属浪漫之旅~</p>
   <input type="text" id="username-input" class="login-input" placeholder="请输入你的名字..." autocomplete="off">
-  <button class="login-btn" onclick="doLogin()">进入小窝 ❤️</button>
-  <p id="login-error" class="login-error">只能输入「何婷婷」或「孙研成」哦~</p>
+  <button class="login-btn" onclick="doLogin()">进入我们的小窝 💖</button>
+  <p id="login-error" class="login-error">只能输入"婷婷宝贝"或"孙妍成"哦~</p>
 </div>
 </div>
 
-<!-- 主页面 -->
 <div id="main-page" class="page">
 <div class="top-bar">
   <div class="user-info">
@@ -187,88 +130,97 @@ body::before{content:'';position:fixed;inset:0;background:rgba(255,245,247,0.55)
   </div>
   <button class="logout-btn" onclick="doLogout()">退出</button>
 </div>
-
 <div class="content-area">
-
-  <!-- 首页 -->
   <div id="section-home" class="section active">
     <div class="welcome-card fade-in">
-      <div class="wc-hearts">💕💖💗💓💞💝</div>
-      <div class="wc-title">婷婷 &amp; 研成</div>
-      <div class="wc-subtitle">属于我们两个人的恋爱小窝 ✨</div>
+      <div class="wc-hearts">💕💖💗💘💝</div>
+      <div class="wc-title">恋爱小助手 & 专属我们的恋爱小窝</div>
+      <div class="wc-subtitle">记录我们两个人的恋爱小日常 💑</div>
       <div class="wc-avatars-row">
-        <img class="wc-avatar" src="hetingting.jpg" alt="何婷婷">
-        <span class="wc-heart">❤️</span>
-        <img class="wc-avatar" src="sunyancheng.jpg" alt="孙研成">
+        <img class="wc-avatar" src="hetingting.jpg" alt="婷婷宝贝">
+        <span class="wc-heart">💖</span>
+        <img class="wc-avatar" src="sunyancheng.jpg" alt="孙妍成">
       </div>
-      <div class="wc-names">何婷婷 💕 孙研成</div>
-      <div class="wc-counter" id="love-day-counter">在一起已经 <strong>--</strong> 天啦！</div>
+      <div class="wc-names">婷婷宝贝 💕 孙妍成</div>
+      <div class="wc-counter" id="love-day-counter">我们已经在一起 <strong>-</strong> 天啦！</div>
     </div>
-    <div style="text-align:center;padding:10px;color:#bbb;font-size:13px;">👇 点击下方导航查看更多内容</div>
+    <div style="text-align:center;padding:10px;color:#bbb;font-size:13px;">💬 可以在留言板写想对对方说的话，记录每一个小瞬间哦~</div>
   </div>
-
-  <!-- 留言板 -->
   <div id="section-messages" class="section">
-    <div class="msg-header"><span class="msg-title">💌 甜言蜜语留言板</span></div>
+    <div class="msg-header"><span class="msg-title">💌 我们的恋爱留言板</span></div>
     <div class="msg-form fade-in">
-      <textarea id="msg-input" class="msg-textarea" placeholder="写下你想说的话... 💭" maxlength="500"></textarea>
-      <button class="msg-send-btn" onclick="sendMsg()">发送留言 ❤️</button>
+      <textarea id="msg-input" class="msg-textarea" placeholder="想对TA说的话... 💌" maxlength="500"></textarea>
+      <button class="msg-send-btn" id="msg-send-btn" onclick="sendMsg()">发送留言 💖</button>
     </div>
     <div id="msg-list" class="msg-list"></div>
   </div>
-
-  <!-- 时间轴 -->
   <div id="section-timeline" class="section">
-    <div class="msg-header"><span class="msg-title">📅 恋爱大事件</span></div>
+    <div class="msg-header"><span class="msg-title">📅 我们的恋爱时间线</span></div>
     <div class="timeline-container fade-in">
       <div class="timeline-line"></div>
       <div id="timeline-list"></div>
     </div>
   </div>
-
-  <!-- 纪念日 -->
   <div id="section-anniversary" class="section">
-    <div class="msg-header"><span class="msg-title">🎀 纪念日提醒</span></div>
+    <div class="msg-header"><span class="msg-title">🎁 恋爱纪念日提醒</span></div>
     <div class="love-days-banner fade-in">
-      <div class="love-days-num" id="total-love-days">--</div>
+      <div class="love-days-num" id="total-love-days">-</div>
       <div class="love-days-label">我们已经在一起的天数 💕</div>
     </div>
     <div class="anniversary-grid" id="anniversary-grid"></div>
   </div>
-
-</div><!-- /content-area -->
-
-<div class="tab-nav">
-  <div class="tab-item active" onclick="switchTab('home')"><div class="tab-icon">🏠</div><div class="tab-label">首页</div></div>
-  <div class="tab-item" onclick="switchTab('messages')"><div class="tab-icon">💌</div><div class="tab-label">留言板</div></div>
-  <div class="tab-item" onclick="switchTab('timeline')"><div class="tab-icon">📅</div><div class="tab-label">大事件</div></div>
-  <div class="tab-item" onclick="switchTab('anniversary')"><div class="tab-icon">🎀</div><div class="tab-label">纪念日</div></div>
+  <div id="section-settings" class="section">
+    <div class="msg-header"><span class="msg-title">⚙️ 云端同步设置</span></div>
+    <div class="settings-box fade-in">
+      <label class="settings-label">GitHub Token（用于云端同步留言和时间轴）</label>
+      <input type="password" id="token-input" class="settings-input" placeholder="粘贴你的 GitHub Token...">
+      <button class="settings-btn" onclick="saveToken()">保存 Token 💾</button>
+      <p class="settings-status" id="token-status"></p>
+      <div style="margin-top:16px;font-size:12px;color:#aaa;line-height:1.8;">
+        📝 使用说明：<br>
+        1. 登录 GitHub → Settings → Developer settings → Personal access tokens → Generate new token<br>
+        2. 勾选 <b>repo</b> 权限，生成 token<br>
+        3. 将 token 粘贴到上方输入框，点击保存<br>
+        4. 两人都填好 token 后，留言和时间轴就会实时同步啦 💕
+      </div>
+    </div>
+    <div class="settings-box fade-in" style="margin-top:12px;">
+      <label class="settings-label">同步状态</label>
+      <p class="settings-status" id="sync-status-text">未连接</p>
+      <button class="settings-btn" onclick="testSync()" style="background:linear-gradient(135deg,#42a5f5,#478ed1);">测试连接 🔗</button>
+    </div>
+  </div>
 </div>
-</div><!-- /main-page -->
+<div class="tab-nav">
+  <div class="tab-item active" data-tab="home" onclick="switchTab('home')"><div class="tab-icon">🏠</div><div class="tab-label">首页</div></div>
+  <div class="tab-item" data-tab="messages" onclick="switchTab('messages')"><div class="tab-icon">💌</div><div class="tab-label">留言板</div></div>
+  <div class="tab-item" data-tab="timeline" onclick="switchTab('timeline')"><div class="tab-icon">📅</div><div class="tab-label">时间线</div></div>
+  <div class="tab-item" data-tab="anniversary" onclick="switchTab('anniversary')"><div class="tab-icon">🎁</div><div class="tab-label">纪念日</div></div>
+  <div class="tab-item" data-tab="settings" onclick="switchTab('settings')"><div class="tab-icon">⚙️</div><div class="tab-label">设置</div></div>
+</div>
+</div>
 
 <script>
 var CONFIG = {
-  validNames: ["何婷婷", "孙研成"],
+  validNames: ["婷婷宝贝", "孙妍成"],
   loveStartDate: new Date("2026-06-19"),
   imgHe: "hetingting.jpg",
   imgSun: "sunyancheng.jpg",
+  githubRepo: "syc19900707/love-app",
   defaultEvents: [
-    {date:"2026-04-02", event:"第一次见面", desc:"我们的故事从这里开始... 🌟", type:"past"},
-    {date:"2026-05-29", event:"第一次加微信聊天", desc:"从这一刻起，每天都能听到对方的声音 💬", type:"past"},
-    {date:"2026-06-19", event:"第一次去山沟沟游玩、牵手、接吻、拥抱、互说爱你", desc:"最美好的一天，所有的第一次都给了你 💋🤗", type:"past"},
-    {date:"", event:"", desc:"✏️ 点击填写新事件...", type:"editable"},
-    {date:"", event:"", desc:"✏️ 点击填写新事件...", type:"editable"},
-    {date:"", event:"", desc:"✏️ 点击填写新事件...", type:"editable"},
+    {date:"2026-04-02", event:"第一次见面吃饭", desc:"第一次见面吃饭，聊得很开心... 😊", type:"past"},
+    {date:"2026-05-29", event:"第一次一起去爬山、看海、牵手、接吻、拥抱、说爱", desc:"最美好的一天，所有的第一次都给了你 😊", type:"past"},
+    {date:"2026-06-19", event:"第一次正式在一起、说爱、牵手、拥抱、接吻、互说爱你", desc:"最美好的一天，所有的一切都给了你 😊", type:"past"},
     {date:"2027", event:"结婚", desc:"执子之手，与子偕老 💍", type:"future"},
-    {date:"2028", event:"生下第一个女儿", desc:"欢迎我们家的小天使 👶👧", type:"future"},
-    {date:"2071", event:"坐着摇椅白头偕老", desc:"一起慢慢变老，这就是最浪漫的事 🪑👵👴", type:"future"}
+    {date:"2028", event:"生一个可爱的宝宝", desc:"一家三口，幸福美满 🍼", type:"future"},
+    {date:"2071", event:"满头白发依然牵手散步", desc:"一辈子很长，这就是最浪漫的事 💞", type:"future"}
   ],
   anniversaries: [
     {name:"恋爱纪念日", dateGetter:function(y){return new Date(y,5,19);}, img:"xingren.jpg"},
     {name:"情人节", dateGetter:function(y){return new Date(y,1,14);}, img:"xiaoxin.jpg"},
     {name:"七夕节", dateGetter:function(y){return getQixi(y);}, img:"xingren1.jpg"},
-    {name:"孙研成的生日", dateGetter:function(y){return new Date(y,6,25);}, img:"xiaoxin1.jpg"},
-    {name:"何婷婷的生日", dateGetter:function(y){return new Date(y,10,1);}, img:"hetingting.jpg"}
+    {name:"孙妍成生日", dateGetter:function(y){return new Date(y,6,25);}, img:"xiaoxin1.jpg"},
+    {name:"婷婷宝贝生日", dateGetter:function(y){return new Date(y,10,1);}, img:"hetingting.jpg"}
   ]
 };
 
@@ -278,23 +230,122 @@ function getQixi(year){
 }
 
 var currentUser = null;
+var ghToken = localStorage.getItem("loveapp_gh_token") || "";
+var cloudMessages = [];
+var cloudEvents = [];
+var _cloudSha = null;
+var _syncTimer = null;
+
+function getApiUrl(){ return "https://api.github.com/repos/" + CONFIG.githubRepo + "/contents/data.json"; }
 
 function fillName(n){ document.getElementById("username-input").value = n; }
+
+function saveToken(){
+  var input = document.getElementById("token-input");
+  var val = input.value.trim();
+  if(!val){ alert("请输入 Token"); return; }
+  ghToken = val;
+  localStorage.setItem("loveapp_gh_token", val);
+  document.getElementById("token-status").textContent = "✅ Token 已保存（仅存在本设备）";
+  document.getElementById("token-status").style.color = "#43a047";
+}
+
+function testSync(){
+  if(!ghToken){ alert("请先填写并保存 Token"); return; }
+  var statusEl = document.getElementById("sync-status-text");
+  statusEl.textContent = "🔄 测试中...";
+  cloudPull(function(err){
+    if(err){ statusEl.textContent = "❌ 连接失败：" + err.message; statusEl.style.color = "#e53935"; }
+    else { statusEl.textContent = "✅ 连接成功！云端同步已启用"; statusEl.style.color = "#43a047"; }
+  });
+}
+
+// 从 GitHub 拉取数据
+function cloudPull(callback) {
+  if(!ghToken){ if(callback)callback(new Error("未配置 Token")); return; }
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", getApiUrl() + "?t=" + Date.now(), true);
+  xhr.setRequestHeader("Authorization", "token " + ghToken);
+  xhr.setRequestHeader("Accept", "application/vnd.github.v3+json");
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      try {
+        var resp = JSON.parse(xhr.responseText);
+        _cloudSha = resp.sha;
+        var content = atob(resp.content.replace(/\s/g, ''));
+        var data = JSON.parse(content);
+        cloudMessages = data.messages || [];
+        cloudEvents = data.events && data.events.length ? data.events : CONFIG.defaultEvents;
+        if (callback) callback(null, data);
+      } catch(e) { if (callback) callback(e); }
+    } else {
+      if (callback) callback(new Error("HTTP " + xhr.status));
+    }
+  };
+  xhr.onerror = function() { if (callback) callback(new Error("网络错误")); };
+  xhr.send();
+}
+
+// 向 GitHub 推送数据
+function cloudPush(data, callback) {
+  if(!ghToken){ if(callback)callback(new Error("未配置 Token")); return; }
+  var content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+  var body = { message: "sync: love app data update", content: content, branch: "main" };
+  if (_cloudSha) body.sha = _cloudSha;
+  var xhr = new XMLHttpRequest();
+  xhr.open("PUT", getApiUrl(), true);
+  xhr.setRequestHeader("Authorization", "token " + ghToken);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("Accept", "application/vnd.github.v3+json");
+  xhr.onload = function() {
+    if (xhr.status === 200 || xhr.status === 201) {
+      try { _cloudSha = JSON.parse(xhr.responseText).content.sha; } catch(e) {}
+      if (callback) callback(null);
+    } else {
+      if (callback) callback(new Error("保存失败 HTTP " + xhr.status));
+    }
+  };
+  xhr.onerror = function() { if (callback) callback(new Error("网络错误")); };
+  xhr.send(JSON.stringify(body));
+}
+
+function startCloudSync() {
+  if (_syncTimer) return;
+  _syncTimer = setInterval(function() {
+    if(!ghToken) return;
+    cloudPull(function(err) {
+      if (!err) {
+        renderMessages(cloudMessages);
+        renderTimeline(cloudEvents);
+      }
+    });
+  }, 15000);
+}
 
 function doLogin(){
   var input = document.getElementById("username-input").value.trim();
   var err = document.getElementById("login-error");
-  if(CONFIG.validNames.indexOf(input)===-1){
-    err.style.display="block"; return;
-  }
+  if(CONFIG.validNames.indexOf(input)===-1){ err.style.display="block"; return; }
   currentUser = input;
   localStorage.setItem("loveapp_user", currentUser);
   document.getElementById("login-page").classList.remove("active");
   document.getElementById("main-page").classList.add("active");
   document.getElementById("top-name").textContent = currentUser;
-  document.getElementById("top-avatar").src = currentUser==="何婷婷" ? CONFIG.imgHe : CONFIG.imgSun;
-  initAll();
-  startHearts();
+  document.getElementById("top-avatar").src = currentUser==="婷婷宝贝" ? CONFIG.imgHe : CONFIG.imgSun;
+  // 显示已保存的 token（部分隐藏）
+  var tokInput = document.getElementById("token-input");
+  if(ghToken) tokInput.value = ghToken.substring(0,6) + "••••••••••••••••";
+  initAll(); startHearts();
+  // 自动拉取云端数据
+  if(ghToken){
+    cloudPull(function(err){
+      if(!err){
+        renderMessages(cloudMessages);
+        renderTimeline(cloudEvents);
+        startCloudSync();
+      }
+    });
+  }
 }
 
 function doLogout(){
@@ -304,7 +355,6 @@ function doLogout(){
   document.getElementById("username-input").value="";
 }
 
-// 自动登录
 (function(){
   var saved = localStorage.getItem("loveapp_user");
   if(saved && CONFIG.validNames.indexOf(saved)!==-1){
@@ -312,9 +362,19 @@ function doLogout(){
     document.getElementById("login-page").classList.remove("active");
     document.getElementById("main-page").classList.add("active");
     document.getElementById("top-name").textContent = currentUser;
-    document.getElementById("top-avatar").src = currentUser==="何婷婷" ? CONFIG.imgHe : CONFIG.imgSun;
-    initAll();
-    startHearts();
+    document.getElementById("top-avatar").src = currentUser==="婷婷宝贝" ? CONFIG.imgHe : CONFIG.imgSun;
+    var tokInput = document.getElementById("token-input");
+    if(ghToken) tokInput.value = ghToken.substring(0,6) + "••••••••••••••••";
+    initAll(); startHearts();
+    if(ghToken){
+      cloudPull(function(err){
+        if(!err){
+          renderMessages(cloudMessages);
+          renderTimeline(cloudEvents);
+          startCloudSync();
+        }
+      });
+    }
   }
 })();
 
@@ -326,136 +386,72 @@ function switchTab(tab){
   if(el) el.classList.add("active");
   window.scrollTo(0,0);
 }
-
-function getLoveDays(){
-  var now=new Date(), start=CONFIG.loveStartDate;
-  var d=Math.floor((now-start)/(1000*60*60*24));
-  return d>=0?d:0;
-}
+function getLoveDays(){ var now=new Date(),d=Math.floor((now-CONFIG.loveStartDate)/(1000*60*60*24));return d>0?d:0; }
 function updateLoveDays(){
   var d=getLoveDays();
-  var el=document.getElementById("love-day-counter");
-  if(el) el.innerHTML="在一起已经 <strong>"+d+"</strong> 天啦！";
-  el=document.getElementById("total-love-days");
-  if(el) el.textContent=d;
+  var el=document.getElementById("love-day-counter"); if(el) el.innerHTML="我们已经在一起 <strong>"+d+"</strong> 天啦！";
+  el=document.getElementById("total-love-days"); if(el) el.textContent=d;
 }
-
-/* 留言板 */
-function loadMessages(){ renderMessages(JSON.parse(localStorage.getItem("loveapp_msgs")||"[]")); }
 function renderMessages(msgs){
   var list=document.getElementById("msg-list"); if(!list)return;
-  if(msgs.length===0){list.innerHTML='<div class="msg-empty">还没有留言哦，快来说说心里话吧～ 💌</div>';return;}
-  var h="";
-  for(var i=0;i<msgs.length;i++){
-    var m=msgs[i], cls=m.user==="何婷婷"?"tingting":"yancheng";
-    var av=m.user==="何婷婷"?CONFIG.imgHe:CONFIG.imgSun;
-    h+='<div class="msg-card '+cls+' fade-in" style="animation-delay:'+(i*0.05)+'s">';
-    h+='<div class="msg-card-header">';
-    h+='<img class="msg-card-avatar" src="'+av+'">';
-    h+='<span class="msg-card-name">'+esc(m.user)+'</span>';
-    h+='<span class="msg-card-date">'+m.date+'</span></div>';
-    h+='<div class="msg-card-body">'+esc(m.text)+'</div></div>';
+  if(msgs.length===0){list.innerHTML='<div class="msg-empty">还没有留言哦~ 快写下第一条留言吧 💌</div>';return;}
+  var h=""; for(var i=0;i<msgs.length;i++){
+    var m=msgs[i],cls=m.user==="婷婷宝贝"?"tingting":"yancheng",av=m.user==="婷婷宝贝"?CONFIG.imgHe:CONFIG.imgSun;
+    h+='<div class="msg-card '+cls+' fade-in" style="animation-delay:'+(i*0.05)+'s"><div class="msg-card-header"><img class="msg-card-avatar" src="'+av+'"><span class="msg-card-name">'+esc(m.user)+'</span><span class="msg-card-date">'+m.date+'</span></div><div class="msg-card-body">'+esc(m.text)+'</div></div>';
   }
   list.innerHTML=h;
 }
 function sendMsg(){
+  if(!ghToken){alert("请先在「设置」页面填写 GitHub Token 才能同步哦~");switchTab("settings");return;}
   var ta=document.getElementById("msg-input"); if(!ta)return;
   var text=ta.value.trim(); if(!text)return;
+  var btn=document.getElementById("msg-send-btn"); btn.disabled=true; btn.textContent="发送中...";
   var now=new Date(), ds=now.getFullYear()+"年"+(now.getMonth()+1)+"月"+now.getDate()+"日";
-  var msgs=JSON.parse(localStorage.getItem("loveapp_msgs")||"[]");
-  msgs.push({user:currentUser,text:text,date:ds});
-  localStorage.setItem("loveapp_msgs",JSON.stringify(msgs));
-  ta.value=""; renderMessages(msgs);
-  var list=document.getElementById("msg-list");
-  if(list&&list.lastElementChild) list.lastElementChild.scrollIntoView({behavior:"smooth"});
-}
-
-/* 时间轴 */
-function loadTimeline(){
-  var ev=JSON.parse(localStorage.getItem("loveapp_events")||"null");
-  if(!ev){ev=CONFIG.defaultEvents.slice();localStorage.setItem("loveapp_events",JSON.stringify(ev));}
-  renderTimeline(ev);
+  cloudMessages.push({user:currentUser,text:text,date:ds});
+  cloudPush({messages:cloudMessages, events:cloudEvents}, function(err){
+    btn.disabled=false; btn.textContent="发送留言 💖";
+    if(err){ alert("发送失败："+err.message); } else { renderMessages(cloudMessages); }
+    ta.value="";
+    var list=document.getElementById("msg-list");
+    if(list&&list.lastElementChild) list.lastElementChild.scrollIntoView({behavior:"smooth"});
+  });
 }
 function renderTimeline(events){
   var c=document.getElementById("timeline-list"); if(!c)return;
-  var h="";
-  for(var i=0;i<events.length;i++){
-    var ev=events[i];
-    var dc=ev.type==="future"?"future":(ev.type==="editable"?"editable":"past");
-    var edit=ev.type==="editable";
-    h+='<div class="timeline-item fade-in" style="animation-delay:'+(i*0.05)+'s">';
-    h+='<div class="timeline-dot '+dc+'"'+(edit?' onclick="toggleEdit('+i+')"':'')+'></div>';
-    h+='<div class="timeline-card">';
+  var h=""; for(var i=0;i<events.length;i++){
+    var ev=events[i],dc=ev.type==="future"?"future":(ev.type==="past"?"past":"past");
+    h+='<div class="timeline-item fade-in" style="animation-delay:'+(i*0.05)+'s"><div class="timeline-dot '+dc+'"></div><div class="timeline-cards">';
     if(ev.date) h+='<span class="timeline-date">'+ev.date+'</span>';
     h+='<div class="timeline-event">'+(ev.event||'')+'</div>';
     if(ev.desc) h+='<div class="timeline-desc">'+esc(ev.desc)+'</div>';
-    if(edit){
-      h+='<div class="edit-form" id="ef'+i+'">';
-      h+='<input class="edit-input" id="ed'+i+'" value="'+(ev.date||'')+'" placeholder="日期">';
-      h+='<input class="edit-input" id="ee'+i+'" value="'+(ev.event||'')+'" placeholder="事件">';
-      h+='<input class="edit-input" id="es'+i+'" value="'+(ev.desc||'')+'" placeholder="描述">';
-      h+='<button class="edit-save-btn" onclick="saveEvent('+i+')">保存 ✅</button>';
-      h+='</div>';
-    }
     h+='</div></div>';
   }
   c.innerHTML=h;
 }
-function toggleEdit(i){
-  var el=document.getElementById("ef"+i);
-  if(el) el.style.display=el.style.display==="block"?"none":"block";
-}
-function saveEvent(i){
-  var ev=JSON.parse(localStorage.getItem("loveapp_events")||"[]");
-  ev[i]={date:document.getElementById("ed"+i).value,event:document.getElementById("ee"+i).value,desc:document.getElementById("es"+i).value,type:"custom"};
-  localStorage.setItem("loveapp_events",JSON.stringify(ev)); renderTimeline(ev);
-}
-
-/* 纪念日 */
 function renderAnniversaries(){
   var g=document.getElementById("anniversary-grid"); if(!g)return;
   var today=new Date(), h="";
   for(var i=0;i<CONFIG.anniversaries.length;i++){
-    var a=CONFIG.anniversaries[i];
-    var nd=a.dateGetter(today.getFullYear());
+    var a=CONFIG.anniversaries[i], nd=a.dateGetter(today.getFullYear());
     if(nd<=today) nd=a.dateGetter(today.getFullYear()+1);
-    var diff=Math.ceil((nd-today)/(1000*60*60*24));
-    var cls="", txt="还有 "+diff+" 天";
-    if(diff===0){cls="today";txt="就是今天！🎉";}
-    else if(diff<=7){cls="soon";}
-    h+='<div class="anniv-card fade-in">';
-    h+='<img class="anniv-img" src="'+a.img+'" alt="'+a.name+'">';
-    h+='<div class="anniv-name">'+a.name+'</div>';
-    h+='<div class="anniv-date">'+formatDate(nd)+'</div>';
-    h+='<div class="anniv-countdown '+cls+'">'+txt+'</div></div>';
+    var diff=Math.ceil((nd-today)/(1000*60*60*24)), cls="", txt="还剩 "+diff+" 天";
+    if(diff===0){cls="today";txt="就是今天！🎉";} else if(diff<=7){cls="soon";}
+    h+='<div class="anniv-card fade-in"><img class="anniv-img" src="'+a.img+'"><div class="anniv-name">'+a.name+'</div><div class="anniv-date">'+formatDate(nd)+'</div><div class="anniv-countdown '+cls+'">'+txt+'</div></div>';
   }
   g.innerHTML=h;
 }
 function formatDate(d){ return d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日"; }
-
 function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
-
-/* 飘心动画 */
-function startHearts(){
-  setInterval(function(){ if(Math.random()>0.5) createHeart(); },800);
-}
+function startHearts(){ setInterval(function(){ if(Math.random()>0.5) createHeart(); },800); }
 function createHeart(){
-  var h=document.createElement("div");
-  h.innerHTML=["❤","💕","💖","💗","💓"][Math.floor(Math.random()*5)];
-  var s=10+Math.random()*18;
-  var l=Math.random()*100;
-  var c=["#ff6b9d","#f06292","#ec407a","#e91e63","#ff4081"][Math.floor(Math.random()*5)];
-  h.style.cssText="position:fixed;left:"+l+"vw;bottom:-30px;font-size:"+s+"px;color:"+c+";pointer-events:none;z-index:9999;animation:floatUp 4s ease-out forwards;";
-  document.body.appendChild(h);
-  setTimeout(function(){h.remove();},4000);
+  var h=document.createElement("div"); h.innerHTML=['💖','💕','💗','💘','💝'][Math.floor(Math.random()*5)];
+  h.style.cssText="position:fixed;left:"+Math.random()*100+"vw;bottom:-30px;font-size:"+(10+Math.random()*18)+"px;pointer-events:none;z-index:9999;animation:floatUp 4s ease-out forwards;";
+  document.body.appendChild(h); setTimeout(function(){h.remove();},4000);
 }
-
-// 飘心动画样式
 var ss=document.createElement("style");
-ss.textContent="@keyframes floatUp{0%{opacity:1;transform:translateY(0) rotate(0deg);}100%{opacity:0;transform:translateY(-110vh) rotate("+(Math.random()>0.5?"":"-")+"360deg);}}";
+ss.textContent="@keyframes floatUp{0%{opacity:1;transform:translateY(0);}100%{opacity:0;transform:translateY(-110vh);}}";
 document.head.appendChild(ss);
-
-function initAll(){ updateLoveDays(); loadMessages(); loadTimeline(); renderAnniversaries(); }
+function initAll(){ updateLoveDays(); renderAnniversaries(); }
 setInterval(updateLoveDays, 60000);
 </script>
 </body>
