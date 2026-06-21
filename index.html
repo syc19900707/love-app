@@ -105,20 +105,20 @@ body::before{content:'';position:fixed;inset:0;background:rgba(255,245,247,0.55)
 <div id="login-page" class="page active">
 <div class="login-box">
   <div class="login-avatars">
-    <div class="login-avatar-item" onclick="fillName('婷婷宝贝')">
-      <img src="hetingting.jpg" alt="婷婷宝贝">
-      <div class="la-name">婷婷宝贝</div>
+    <div class="login-avatar-item" onclick="fillName('何婷婷')">
+      <img src="hetingting.jpg" alt="何婷婷">
+      <div class="la-name">何婷婷</div>
     </div>
-    <div class="login-avatar-item" onclick="fillName('孙妍成')">
-      <img src="sunyancheng.jpg" alt="孙妍成">
-      <div class="la-name">孙妍成</div>
+    <div class="login-avatar-item" onclick="fillName('孙研成')">
+      <img src="sunyancheng.jpg" alt="孙研成">
+      <div class="la-name">孙研成</div>
     </div>
   </div>
   <h1>💕 专属我们的恋爱小窝 💕</h1>
   <p class="login-subtitle">输入你的名字，开启专属浪漫之旅~</p>
   <input type="text" id="username-input" class="login-input" placeholder="请输入你的名字..." autocomplete="off">
   <button class="login-btn" onclick="doLogin()">进入我们的小窝 💖</button>
-  <p id="login-error" class="login-error">只能输入"婷婷宝贝"或"孙妍成"哦~</p>
+  <p id="login-error" class="login-error">只能输入"何婷婷"或"孙研成"哦~</p>
 </div>
 </div>
 
@@ -137,11 +137,11 @@ body::before{content:'';position:fixed;inset:0;background:rgba(255,245,247,0.55)
       <div class="wc-title">恋爱小助手 & 专属我们的恋爱小窝</div>
       <div class="wc-subtitle">记录我们两个人的恋爱小日常 💑</div>
       <div class="wc-avatars-row">
-        <img class="wc-avatar" src="hetingting.jpg" alt="婷婷宝贝">
+        <img class="wc-avatar" src="hetingting.jpg" alt="何婷婷">
         <span class="wc-heart">💖</span>
-        <img class="wc-avatar" src="sunyancheng.jpg" alt="孙妍成">
+        <img class="wc-avatar" src="sunyancheng.jpg" alt="孙研成">
       </div>
-      <div class="wc-names">婷婷宝贝 💕 孙妍成</div>
+      <div class="wc-names">何婷婷 💕 孙研成</div>
       <div class="wc-counter" id="love-day-counter">我们已经在一起 <strong>-</strong> 天啦！</div>
     </div>
     <div style="text-align:center;padding:10px;color:#bbb;font-size:13px;">💬 可以在留言板写想对对方说的话，记录每一个小瞬间哦~</div>
@@ -202,7 +202,7 @@ body::before{content:'';position:fixed;inset:0;background:rgba(255,245,247,0.55)
 
 <script>
 var CONFIG = {
-  validNames: ["婷婷宝贝", "孙妍成"],
+  validNames: ["何婷婷", "孙研成"],
   loveStartDate: new Date("2026-06-19"),
   imgHe: "hetingting.jpg",
   imgSun: "sunyancheng.jpg",
@@ -219,8 +219,8 @@ var CONFIG = {
     {name:"恋爱纪念日", dateGetter:function(y){return new Date(y,5,19);}, img:"xingren.jpg"},
     {name:"情人节", dateGetter:function(y){return new Date(y,1,14);}, img:"xiaoxin.jpg"},
     {name:"七夕节", dateGetter:function(y){return getQixi(y);}, img:"xingren1.jpg"},
-    {name:"孙妍成生日", dateGetter:function(y){return new Date(y,6,25);}, img:"xiaoxin1.jpg"},
-    {name:"婷婷宝贝生日", dateGetter:function(y){return new Date(y,10,1);}, img:"hetingting.jpg"}
+    {name:"孙研成生日", dateGetter:function(y){return new Date(y,6,25);}, img:"xiaoxin1.jpg"},
+    {name:"何婷婷生日", dateGetter:function(y){return new Date(y,10,1);}, img:"hetingting.jpg"}
   ]
 };
 
@@ -331,7 +331,7 @@ function doLogin(){
   document.getElementById("login-page").classList.remove("active");
   document.getElementById("main-page").classList.add("active");
   document.getElementById("top-name").textContent = currentUser;
-  document.getElementById("top-avatar").src = currentUser==="婷婷宝贝" ? CONFIG.imgHe : CONFIG.imgSun;
+  document.getElementById("top-avatar").src = currentUser==="何婷婷" ? CONFIG.imgHe : CONFIG.imgSun;
   // 显示已保存的 token（部分隐藏）
   var tokInput = document.getElementById("token-input");
   if(ghToken) tokInput.value = ghToken.substring(0,6) + "••••••••••••••••";
@@ -362,7 +362,7 @@ function doLogout(){
     document.getElementById("login-page").classList.remove("active");
     document.getElementById("main-page").classList.add("active");
     document.getElementById("top-name").textContent = currentUser;
-    document.getElementById("top-avatar").src = currentUser==="婷婷宝贝" ? CONFIG.imgHe : CONFIG.imgSun;
+    document.getElementById("top-avatar").src = currentUser==="何婷婷" ? CONFIG.imgHe : CONFIG.imgSun;
     var tokInput = document.getElementById("token-input");
     if(ghToken) tokInput.value = ghToken.substring(0,6) + "••••••••••••••••";
     initAll(); startHearts();
@@ -396,7 +396,7 @@ function renderMessages(msgs){
   var list=document.getElementById("msg-list"); if(!list)return;
   if(msgs.length===0){list.innerHTML='<div class="msg-empty">还没有留言哦~ 快写下第一条留言吧 💌</div>';return;}
   var h=""; for(var i=0;i<msgs.length;i++){
-    var m=msgs[i],cls=m.user==="婷婷宝贝"?"tingting":"yancheng",av=m.user==="婷婷宝贝"?CONFIG.imgHe:CONFIG.imgSun;
+    var m=msgs[i],cls=m.user==="何婷婷"?"tingting":"yancheng",av=m.user==="何婷婷"?CONFIG.imgHe:CONFIG.imgSun;
     h+='<div class="msg-card '+cls+' fade-in" style="animation-delay:'+(i*0.05)+'s"><div class="msg-card-header"><img class="msg-card-avatar" src="'+av+'"><span class="msg-card-name">'+esc(m.user)+'</span><span class="msg-card-date">'+m.date+'</span></div><div class="msg-card-body">'+esc(m.text)+'</div></div>';
   }
   list.innerHTML=h;
