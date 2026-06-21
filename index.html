@@ -272,7 +272,11 @@ function cloudPull(callback) {
       try {
         var resp = JSON.parse(xhr.responseText);
         _cloudSha = resp.sha;
-        var content = decodeURIComponent(escape(atob(resp.content.replace(/\s/g, ''))));
+        // Robust UTF-8 decode
+        var binary = atob(resp.content.replace(/\s/g, ''));
+        var bytes = new Uint8Array(binary.length);
+        for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+        var content = new TextDecoder("utf-8").decode(bytes);
         var data = JSON.parse(content);
         cloudMessages = data.messages || [];
         cloudEvents = data.events && data.events.length ? data.events : CONFIG.defaultEvents;
@@ -289,7 +293,12 @@ function cloudPull(callback) {
 // 向 GitHub 推送数据
 function cloudPush(data, callback) {
   if(!ghToken){ if(callback)callback(new Error("未配置 Token")); return; }
-  var content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+  // Robust UTF-8 encode
+  var jsonStr = JSON.stringify(data, null, 2);
+  var bytes = new TextEncoder().encode(jsonStr);
+  var binary = "";
+  for (var i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+  var content = btoa(binary);
   var body = { message: "sync: love app data update", content: content, branch: "main" };
   if (_cloudSha) body.sha = _cloudSha;
   var xhr = new XMLHttpRequest();
