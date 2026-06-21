@@ -272,7 +272,7 @@ function cloudPull(callback) {
       try {
         var resp = JSON.parse(xhr.responseText);
         _cloudSha = resp.sha;
-        var content = atob(resp.content.replace(/\s/g, ''));
+        var content = decodeURIComponent(escape(atob(resp.content.replace(/\s/g, ''))));
         var data = JSON.parse(content);
         cloudMessages = data.messages || [];
         cloudEvents = data.events && data.events.length ? data.events : CONFIG.defaultEvents;
